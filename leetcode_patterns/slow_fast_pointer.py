@@ -37,24 +37,3 @@ def hasCycle(head: Optional[ListNode]) -> bool:
 
 
 print(hasCycle(head))  # True
-
-    
-
-def detectCycle( head: Optional[ListNode]) -> Optional[ListNode]:
-	slow = head
-	fast = head # moves 2x
-	
-    while fast and fast.next:
-        slow = slow.next
-		fast = fast.next.next
-		
-        if slow == fast:
-			return fast
-	
-    return None
-
-
-'''
-def removeNthFromEnd( head: Optional[ListNode], n: int) -> Optional[ListNode]:
-        
-'''
