@@ -1,6 +1,13 @@
 Travis Wessman
-Python Mini Projects Collection
 Python 3.9.6
+
+# Leetcode Patterns + Algorithm Notes
+
+## Overview
+
+
+
+
 # Python Mini Projects
 
 ## Converting JSON into CSV
