@@ -78,3 +78,14 @@ b = np.array([[4, 2, 4], [2, -2, 5], [3, 4, -4]])
 
 cosine = np.sum(a * b, axis=1) / (norm(a, axis=1) * norm(b, axis=1))
 print(f"Cosine Similarity: {cosine}")
+
+"""
+Final Explaination:
+    Why is this useful for embeddings?
+    
+    An embedding is simply a vector representation of some object (text, image, user, etc.), which in Python is typically stored as a NumPy ndarry. NumPy in Python is a library for manipulating arrays and performing fast numerical operations, most importantly for this case linear algrebra on n-dimensional arrasy such as matrices and vectors. With embeddings this works well since calculating dot products, norms, and other operations need to be done at scale, which regular Python wouldn't be ideal. 
+
+    Now, say I am given a collection of embeddings, the question is how do I measure similarity between them so I can use semantic search and retrieval-augemented generation or RAG. With an embedding model, it has already learned a high-dimensional space where semantically similar items are mapped to nearby directions. Our job is to compare these vectors in that space. A common metric for this is consine similarity, which is a formula to measure the consine and angle between teo vectors (a and b). If the angle is 0, meaning they point in the same direction, then cos(0) = 1, indicating maximum similarity. While if the angle is 90, then cos(pi/2) = 0, or that they are unrelated. 
+
+    So in semantic search the typical workflow is: turn the user query into an embedding -> compute the cosine similarity between that query and all stored document vectors, then retrieve the top-k documents with the highest cosine scores. Thus, embedding provides a geometric representation of meaning, NumPy provides the tools to manipulate these vectors in Python, and cosine similarity provides a scoring rule that tells us which stored embeddings are relevant.
+"""
