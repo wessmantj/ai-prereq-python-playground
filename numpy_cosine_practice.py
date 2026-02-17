@@ -1,3 +1,4 @@
+# NUMPY OVERVIEW
 import numpy as np
 '''
     NumPy is a Python library that provides multidimensional arrays (2D, 3D, ..., nD), an assortment of routines for fast operations (logical, mathmatical, etc.), and much more.
@@ -13,7 +14,7 @@ import numpy as np
 '''
 
 
-# .arange | creating a numpy array of index range 20, so 0-19. It is then .reshaped | which is the dimensions of the array.
+# .arange | here is creating a numpy array of index range 20, so 0-19. Is the same as python function range, but returns an array. It is then .reshaped | which is the dimensions of the array.
 a = np.arange(20).reshape(4,5) # this is an ndarray 
 print(f"a = {a}")
 
@@ -49,3 +50,31 @@ d = np.ones((2, 3, 4), dtype=np.int16)
 print(f"d = {d}")
 d = np.empty((2, 3)) # will default to float since no dtype specified
 print(f"d = {d}")
+
+# printing a NumPy array that is larger than printable, it will skip the central part and only return the corners. Can be changed with .setprintoptions | either sys.maxsize or desired output.
+
+# COSINE SIMILARITY
+
+from numpy.linalg import norm
+
+# Computing the consine similarity between two 1D vectors
+a = np.array([2, 1, 2, 3, 2, 9])
+b = np.array([3, 4, 2, 4, 5, 5])
+# .dot | computes the dot product or each index of a times each index of b. An example can be np.dot([1, 2, 3], [4, 5, 6]), which results in (1*4) + (2*5) + (3*6) = 32
+# .norm | computes the magnitude of an array 
+cosine = np.dot(a, b) / (norm(a) * norm(b)) # (a * b) / (||a|| * ||b||)
+print(f"Cosine Similarity: {cosine}")
+
+# Computing similarity between vector and batch of vectors
+a = np.array([[2, 1, 2], [3, 2, 9], [-1, 2, -3]]) # has 3 vectors (rows)
+b = np.array([3, 4, 2])
+
+cosine = np.dot(a, b) / (norm(a, axis=1) * norm(b)) # similarity is computed row-wise
+print("Cosine Similarity:", cosine)
+
+# Similarity between two martrices
+a = np.array([[1, 2, 2], [3, 2, 2], [-2, 1, -3]])
+b = np.array([[4, 2, 4], [2, -2, 5], [3, 4, -4]])
+
+cosine = np.sum(a * b, axis=1) / (norm(a, axis=1) * norm(b, axis=1))
+print(f"Cosine Similarity: {cosine}")
