@@ -22,6 +22,8 @@ Python 3.9.6
 
     - pycryptodome 3.23.0 | library for low level encryption & decryption
     - lorem-text 3.0 | dummy lorem ipsum text generator for Python.
+    - numpy 2.0.2 |
+    - faiss-cpu 1.13.0 |
 
 
 # SELF NOTES
